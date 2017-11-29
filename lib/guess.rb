@@ -1,11 +1,17 @@
-require_relative 'game_manager'
+# require_relative 'game_manager'
 
 class Guess
 
-  attr_reader :guesses
+  attr_reader :guesses, :guess_counter
 
-  def intialize
-    @guesses = []
+  def initialize
+    @guesses       = []
+    @guess_counter = 0
+  end
+
+  def user_input(input)
+    @guesses << input
+    @guess_counter += 1
   end
 
 end

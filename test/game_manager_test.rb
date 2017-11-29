@@ -12,7 +12,7 @@ class GameManagerTest < Minitest::Test
 
   def test_computer_selection_is_colors_shuffled
     game_manager = GameManager.new
-
+    require "pry"; binding.pry
     assert_equal 4, game_manager.computer_selection.count
   end
 
@@ -26,7 +26,7 @@ class GameManagerTest < Minitest::Test
   def test_once_guess_made_guess_is_shoveled_into_guesses
     game_manager = GameManager.new
     game_manager.user_input("ggrb")
-    
+
     assert_equal "ggrb", game_manager.guesses[0]
     assert_equal 1, game_manager.guesses.count
   end

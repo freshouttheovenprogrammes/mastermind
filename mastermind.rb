@@ -21,3 +21,8 @@ loop do
     game_prompts.quit_prompt
   end
 end
+
+# start w/ Time.now
+# end w/ Time.now
+
+# end - start
