@@ -8,14 +8,16 @@ game_prompts = GamePrompts.new
 game_manager = GameManager.new
 
 loop do
-  if input == "p"
-    game_prompts.play_prompt    
+  if input == "p" || input == "play"
+    game_prompts.play_prompt
+    game_manager.secret_generator
     user_play_input = gets.chomp
-  elsif input == "i"
+    game_manager.user_input(user_play_input)
+    game_manager.input_check
+  elsif input == "i" || input == "instructions"
     game_prompts.instructions
     p "So are you ready to play?"
-      return
-  else input == "q" || "quit"
+  else input == "q" || input == "quit"
     game_prompts.quit_prompt
   end
 end

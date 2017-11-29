@@ -2,7 +2,7 @@ class GameManager
 
   attr_reader :guess_counter, :guesses, :answer
 
-  def initialize(guesses = [], answer = ["r", "g", "b", "y"])
+  def initialize(guesses = [], answer = [])
     @guess_counter = 0
     @guesses       = guesses
     @answer        = answer
@@ -12,7 +12,7 @@ class GameManager
     ["r", "r", "r", "r", "g", "g", "g", "g", "b", "b", "b", "b", "y", "y", "y", "y"]
   end
 
-  def game_start
+  def secret_generator
     answer << computer_selection
   end
 
