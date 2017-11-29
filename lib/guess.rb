@@ -1,5 +1,3 @@
-# require_relative 'game_manager'
-
 class Guess
 
   attr_reader :guesses, :guess_counter

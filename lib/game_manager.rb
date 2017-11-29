@@ -2,10 +2,8 @@ class GameManager
 
   attr_reader :guess_counter, :guesses, :answer
 
-  def initialize(guesses = [], answer = [])
-    @guess_counter = 0
-    @guesses       = guesses
-    @answer        = answer
+  def initialize
+    @answer = []
   end
 
   def colors
@@ -18,11 +16,6 @@ class GameManager
 
   def computer_selection
     colors.shuffle.sample(4)
-  end
-
-  def user_input(input)
-    guesses << input
-    counter_adder
   end
 
   def input_check
