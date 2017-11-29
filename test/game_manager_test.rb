@@ -32,5 +32,13 @@ class GameManagerTest < Minitest::Test
     assert_equal 1, game_manager.guess_counter
   end
 
+  def test_once_guess_made_guess_is_shoveled_into_guesses
+    game_manager = GameManager.new
+    game_manager.user_input("test")
+
+    assert_equal "test", game_manager.guesses[0]
+    assert_equal 1, game_manager.guesses.count
+  end
+
 
 end

@@ -1,9 +1,11 @@
 class GameManager
 
-  attr_reader :guess_counter
+  attr_reader :guess_counter, :guesses, :answer
 
   def initialize
     @guess_counter = 0
+    @guesses       = guesses
+    @answer        = answer
   end
 
   def colors
@@ -15,6 +17,7 @@ class GameManager
   end
 
   def user_input(input)
+    guesses << input
     counter_adder
   end
 
