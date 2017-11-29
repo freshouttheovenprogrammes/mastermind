@@ -1,4 +1,4 @@
-class Guess
+class GameManager
 
   attr_reader :guess_counter
 

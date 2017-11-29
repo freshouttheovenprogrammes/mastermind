@@ -3,8 +3,8 @@ require_relative './lib/game_prompts'
 puts "Welcome to Mastermind!"
 puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
 input = gets.chomp
-# guess_input = gets.chomp
 game_prompts = GamePrompts.new
+guess_class  = Guess.new
 
 if input == "p"
   game_prompts.play_prompt
