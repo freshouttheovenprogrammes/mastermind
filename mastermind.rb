@@ -9,7 +9,7 @@ game_manager = GameManager.new
 
 loop do
   if input == "p"
-    game_prompts.play_prompt
+    game_prompts.play_prompt    
     user_play_input = gets.chomp
   elsif input == "i"
     game_prompts.instructions
