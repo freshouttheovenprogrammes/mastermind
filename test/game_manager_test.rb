@@ -38,4 +38,11 @@ class GameManagerTest < Minitest::Test
     assert_equal "Incorrect, try again!", game_manager.input_check
   end
 
+  def test_users_answer_is_stated_correct
+    game_manager = GameManager.new
+    game_manager.user_input("rgby")
+    require "pry"; binding.pry
+    assert_equal "Correct", game_manager.input_check
+  end
+
 end
