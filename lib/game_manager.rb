@@ -2,7 +2,7 @@ class GameManager
 
   attr_reader :guess_counter, :guesses, :answer
 
-  def initialize(answer = ["r", "g", "b", "y"])
+  def initialize(guesses = [], answer = ["r", "g", "b", "y"])
     @guess_counter = 0
     @guesses       = guesses
     @answer        = answer
@@ -21,12 +21,12 @@ class GameManager
   end
 
   def user_input(input)
-    guesses += input.split("")
+    guesses << input
     counter_adder
   end
 
   def input_check
-    if guesses[guess_counter] == answer.join
+    if guesses[guess_counter - 1].to_s == answer.join
        "Correct"
     else "Incorrect, try again!"
     end
