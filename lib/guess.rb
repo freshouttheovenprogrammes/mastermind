@@ -3,7 +3,7 @@ class Guess
   attr_reader :guesses, :guess_counter
 
   def initialize
-    @guesses       = []
+    @guesses = []
     @guess_counter = 0
   end
 

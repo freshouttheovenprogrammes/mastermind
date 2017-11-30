@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/game_manager'
+require './lib/game_manager'
+require './lib/guess'
 
 class GameManagerTest < Minitest::Test
 
@@ -14,6 +15,23 @@ class GameManagerTest < Minitest::Test
     game_manager = GameManager.new
 
     assert_equal 4, game_manager.computer_selection.count
+  end
+
+  def test_answer_array_has_the_colors
+    game_manager = GameManager.new
+    game_manager.secret_generator
+
+    assert_equal 4, game_manager.answer.count
+  end
+
+  def test_that_guess_can_be_compared_to_answer
+    guess = Guess.new
+    guess.user_input("test")
+    game_manager = GameManager.new
+    game_manager.answer = ["t", "e", "s", "t"]
+    game_manager.input_check
+    require "pry"; binding.pry
+    # assert_equal "Correct", game_manager.input_check
   end
 
 end

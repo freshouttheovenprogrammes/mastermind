@@ -1,9 +1,17 @@
+require_relative 'guess'
+
 class GameManager
 
-  attr_reader :guess_counter, :guesses, :answer
+  attr_reader :guess_class
+  attr_accessor :answer
 
   def initialize
     @answer = []
+    @guess  = Guess.new
+  end
+
+  def guess_getter(guess_class)
+    guess_class.guesses
   end
 
   def colors
@@ -11,7 +19,7 @@ class GameManager
   end
 
   def secret_generator
-    answer << computer_selection
+    @answer = computer_selection
   end
 
   def computer_selection
@@ -19,14 +27,10 @@ class GameManager
   end
 
   def input_check
-    if guesses[guess_counter - 1].to_s == answer.join
-       "Correct"
-    else "Incorrect, try again!"
+    if guess_getter(@guess)[@guess.guess_counter - 1].to_s != answer.join
+      "Incorrect, try again!"
+    else "Correct"
     end
-  end
-
-  def counter_adder
-    @guess_counter += 1
   end
 
 end
