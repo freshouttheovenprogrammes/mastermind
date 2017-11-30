@@ -2,7 +2,7 @@ require_relative 'guess'
 
 class GameManager
 
-  attr_reader :guess_class
+  attr_reader :guess_class, :guess
   attr_accessor :answer
 
   def initialize
@@ -27,9 +27,9 @@ class GameManager
   end
 
   def input_check
-    if guess_getter(@guess)[@guess.guess_counter - 1].to_s != answer.join
-      "Incorrect, try again!"
-    else "Correct"
+    if guess_getter(@guess)[@guess.guess_counter - 1].to_s == answer.join
+      return "Correct"
+    else "InCorrect"
     end
   end
 

@@ -25,13 +25,11 @@ class GameManagerTest < Minitest::Test
   end
 
   def test_that_guess_can_be_compared_to_answer
-    guess = Guess.new
-    guess.user_input("test")
     game_manager = GameManager.new
     game_manager.answer = ["t", "e", "s", "t"]
-    game_manager.input_check
-    require "pry"; binding.pry
-    # assert_equal "Correct", game_manager.input_check
+    game_manager.guess.user_input("test")
+
+    assert_equal "Correct", game_manager.input_check
   end
 
 end
