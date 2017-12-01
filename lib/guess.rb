@@ -5,6 +5,7 @@ class Guess
   def initialize
     @guesses = []
     @guess_counter = 0
+    # @input = gets.chomp
   end
 
   def user_input(input)

@@ -1,9 +1,21 @@
+require './lib/guess'
+
 class GamePrompts
 
   def play_prompt
     puts "I have generated a beginner sequence with four elements made up of: (r)ed,
   (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game."
   puts "What's your guess?"
+  end
+
+  def try_again_prompt
+    puts "Sorry, that is incorrect, you have some stuff right and stuff wrong"
+    puts "Try again!"
+    puts "Whats your guess?"
+  end
+
+  def congrats_prompt
+    puts "Great job! You have guessed all of the things correctly"
   end
 
   def instructions
@@ -17,9 +29,7 @@ class GamePrompts
 
     - For each color in your guess that is in the correct color but is NOT in the correct position in the code sequence, the computer display a small white color on the right side of the current guess.
 
-    - You win the game when you manage to guess all the colors in the code sequence and when they all in the right position.
-
-    - You lose the game if you use all attempts without guessing the computer code sequence."
+    - You win the game when you manage to guess all the colors in the code sequence and when they all in the right position."
   end
 
   def quit_prompt

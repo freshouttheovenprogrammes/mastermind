@@ -29,7 +29,7 @@ class GameManager
   def input_check
     if guess_getter(@guess)[@guess.guess_counter - 1].to_s == answer.join
       return "Correct"
-    else "InCorrect"
+    else return "InCorrect"
     end
   end
 
