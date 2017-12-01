@@ -1,4 +1,4 @@
-require './lib/guess'
+require './lib/game_manager'
 
 class GamePrompts
 
@@ -9,7 +9,7 @@ class GamePrompts
   end
 
   def try_again_prompt
-    puts "Sorry, that is incorrect, you have some stuff right and stuff wrong"
+    puts "Sorry, that is incorrect, you have entered #{color_correct} correct colors and have #{correct_position} colors in the correct position"
     puts "Try again!"
     puts "Whats your guess?"
   end
