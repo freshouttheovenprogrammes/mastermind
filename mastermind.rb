@@ -12,7 +12,6 @@ game_manager.secret_generator
 loop do
   if input == "p" || input == "play"
     game_prompts.play_prompt
-    # require "pry"; binding.pry
     input = gets.chomp
   elsif input == "i" || input == "instructions"
     game_prompts.instructions
