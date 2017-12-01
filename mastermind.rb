@@ -48,7 +48,7 @@ end
 =begin
  TO DO!!!
  ----------------
- why doesn't it immediately hit prompt when input is "p" || "i" || "q" ???
+ create enum functionality
  before submission, correct the prompts!!!!
  print yr damn loop
 =end
