@@ -27,7 +27,7 @@ loop do
     game_manager.guess_manager.user_input(input)
     result = game_manager.position_check
     colors_right = game_manager.color_check
-    if result == ["O" * result.length]
+    if result.join == "O" * game_manager.answer.count
       game_prompts.congrats_prompt
         break
     else
