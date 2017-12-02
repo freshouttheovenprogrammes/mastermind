@@ -8,7 +8,7 @@ class GuessManager
   end
 
   def user_input(input)
-    @guesses << input.split("")
+    @guesses << input.downcase.split("")
     @guess_counter += 1
   end
 

@@ -4,7 +4,7 @@ require_relative './lib/game_manager'
 puts "Welcome to Mastermind!"
 puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
 
-input = gets.chomp
+input = gets.chomp.downcase
 game_prompts = GamePrompts.new
 game_manager = GameManager.new
 game_manager.secret_generator
@@ -44,7 +44,9 @@ end
 =begin
  TO DO!!!
  ----------------
- create enum functionality
+ 
  before submission, correct the prompts!!!!
+
  print yr damn loop
+
 =end
