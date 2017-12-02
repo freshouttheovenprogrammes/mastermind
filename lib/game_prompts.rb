@@ -2,14 +2,21 @@ require './lib/game_manager'
 
 class GamePrompts
 
+  def guess_square
+    # TO DO
+    # Make a square that holds all of the guesses that user made w/ the position_check
+  end
+
   def play_prompt
     puts "I have generated a beginner sequence with four elements made up of: (r)ed,
   (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game."
   puts "What's your guess?"
   end
 
-  def try_again_prompt
-    puts "Sorry, that is incorrect, you have entered #{color_correct} correct colors and have #{correct_position} colors in the correct position"
+  def try_again_prompt(guesses, score, colors_right)
+    puts "#{guesses}#{score}"
+    puts "You have #{colors_right} colors right"
+    # puts "Sorry, that is incorrect, you have entered #{color_correct} correct colors and have #{correct_position} colors in the correct position"
     puts "Try again!"
     puts "Whats your guess?"
   end

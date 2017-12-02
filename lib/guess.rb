@@ -1,4 +1,4 @@
-class Guess
+class Guesses
 
   attr_reader :guesses, :guess_counter
 
@@ -8,7 +8,7 @@ class Guess
   end
 
   def user_input(input)
-    @guesses << [input]
+    @guesses << input.split("")
     @guess_counter += 1
   end
 

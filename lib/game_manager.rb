@@ -2,18 +2,13 @@ require_relative 'guess'
 
 class GameManager
 
-  attr_reader :guess_class, :guess
+  attr_reader :guess_manager, :color_correct, :correct_position
   attr_accessor :answer
 
   def initialize
-    @answer = []
-    @guess  = Guess.new
-    @color_correct = 0
-    @correct_position = 0
-  end
-
-  def guess_getter(guess_class)
-    guess_class.guesses
+    @answer           = []
+    @guess_manager    = Guesses.new
+    @previous_guesses = []
   end
 
   def colors
@@ -28,13 +23,34 @@ class GameManager
     colors.shuffle.sample(4)
   end
 
-  def input_check
-    guess_getter(@guess)[@guess.guess_counter - 1].each_with_index do |color, i|
-      if color == @answer[i]
-        @correct_position += 1
-      elsif @answer.include?(color)
-        @color_correct += 1
-      end  
+  def color_check
+    compare = @guess_manager.guesses.last
+    compare.select do |color|
+      answer.include?(color)
+        if color >= 2
+          compare.pop
+        end
+        # once we get that there is a color that matches from the guess array
+        # to the answer array we don't want to ???
+        # require "pry"; binding.pry
+    end.length
+  end
+
+  def position_check
+    compare = @guess_manager.guesses.last.zip(answer)
+    compare.map do |comparison|
+      if comparison.first == comparison.last
+        "O"
+      else
+        "X"
+      end
+    end
+
+
+    # compare = guess_getter(@guess)[@guess.guess_counter - 1].zip(answer)
+      # compare.map do |guess, answer|
+      #   if guess == answer
+      #     @correct_position += 1
 
 
       # I want to compare the value of each index against the value of
@@ -46,7 +62,7 @@ class GameManager
       # combine the two methods and compare the results???
 
       # I think I'm going to try to do the latter and seperate..
-    end
+    # end
     # if guess_getter(@guess)[@guess.guess_counter - 1].to_s == answer.join
     #   return "Correct"
     # else return "InCorrect"
@@ -54,7 +70,13 @@ class GameManager
   end
 
 end
-
+# guess = Guess.new
+# thing = GameManager.new
+# thing.guess_getter(guess)
+# thing.secret_generator
+# guess.user_input
+# thing.input_check
+# require "pry"; binding.pry
 =begin
 #If an exact match, then update num correct.  If not, but the color is
             #correct, then update the number of colors correct.
@@ -69,5 +91,8 @@ end
   TO DO
   create enum functionality
   have prompt that can
-
+  make guess container?
 =end
+#
+# array1.each_with_index do |number, index|
+#   array2.each_with_index do |n, i|
