@@ -4,13 +4,15 @@ class GameManager
 
   attr_reader :guess_manager,
               :color_correct,
-              :position_counter
+              :position_counter,
+              :color_correct
   attr_accessor :answer
 
   def initialize
     @answer           = []
     @guess_manager    = GuessManager.new
     @position_counter = 0
+    @color_correct    = 0
     # @previous_guesses = []
   end
 
@@ -30,6 +32,7 @@ class GameManager
     compare = @guess_manager.guesses.last
     compare.select do |color|
       answer.include?(color)
+        @color_correct += 1
     end.uniq.length
   end
 
@@ -38,8 +41,6 @@ class GameManager
     compare.map do |comparison|
       if comparison.first == comparison.last
         @position_counter += 1
-      else
-        "X"
       end
     end
   end

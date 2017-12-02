@@ -30,8 +30,7 @@ class GameManagerTest < Minitest::Test
     assert_equal 4, game_manager.position_counter
   end
 
-  def test_user_is_notified_too_many_colors_entered
-    skip
+  def test_user_is_notified_too_many_colors_entered  
     game_manager = GameManager.new
     game_manager.guess_manager.user_input("RggBy")
 
