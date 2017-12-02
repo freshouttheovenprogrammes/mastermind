@@ -21,26 +21,20 @@ loop do
     game_prompts.quit_prompt
     break
   else
-    game_manager.guess.user_input(input)
-    game_manager.input_check
-    if game_manager.input_check == "Correct"
+    game_manager.guess_manager.user_input(input)
+    result = game_manager.position_check
+    colors_right = game_manager.color_check
+    # require "pry"; binding.pry
+    if result == %w(O O O O)
       game_prompts.congrats_prompt
         break
     else
-      game_prompts.try_again_prompt
+      game_prompts.try_again_prompt(game_manager.guess_manager.guesses.last, result, colors_right)
       input = gets.chomp
     end
   end
 end
 
-
-
-
-
-
-def checker
-  game_manager.input_check
-end
 # start w/ Time.now
 # end w/ Time.now
 
@@ -48,7 +42,7 @@ end
 =begin
  TO DO!!!
  ----------------
- why doesn't it immediately hit prompt when input is "p" || "i" || "q" ???
+ create enum functionality
  before submission, correct the prompts!!!!
  print yr damn loop
 =end

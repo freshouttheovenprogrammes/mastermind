@@ -26,10 +26,12 @@ class GameManagerTest < Minitest::Test
 
   def test_that_guess_can_be_compared_to_answer
     game_manager = GameManager.new
-    game_manager.answer = ["t", "e", "s", "t"]
-    game_manager.guess.user_input("test")
+    game_manager.answer = ["r", "g", "b", "y"]
+    game_manager.guess.user_input("rgby")
+    game_manager.input_check
 
-    assert_equal "Correct", game_manager.input_check
+    assert_equal 4, game_manager.correct_position
+    assert_equal 4, game_manager.color_correct
   end
 
 end
