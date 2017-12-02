@@ -1,4 +1,4 @@
-require './lib/guess'
+require './lib/guess_manager'
 
 class GamePrompts
 
@@ -8,8 +8,9 @@ class GamePrompts
   puts "What's your guess?"
   end
 
-  def try_again_prompt
-    puts "Sorry, that is incorrect, you have some stuff right and stuff wrong"
+  def try_again_prompt(current_guess_array, result, colors_right)
+    puts "#{current_guess_array}#{result}"
+    puts "You have #{colors_right}"
     puts "Try again!"
     puts "Whats your guess?"
   end
@@ -19,7 +20,7 @@ class GamePrompts
   end
 
   def instructions
-    puts"The computer picks a sequence of colors. The number of colors is the code length. The default code length is 4 but it can be changed when starting a new game.
+    puts"The computer picks a sequence of colors. The number of colors is the code length. The code length is 4. There can be multiple instances of the same color.
 
     - The objective of the game is to guess the exact positions of the colors in the computer's sequence.
 
