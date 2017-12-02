@@ -31,10 +31,11 @@ loop do
     colors_right = game_manager.color_check
     if input.length > game_manager.answer.count
       game_prompts.too_many_characters_prompt(game_manager)
+      input = gets.chomp
     elsif input.length < game_manager.answer.count
       game_prompts.too_few_characters_prompt(game_manager)
+      input = gets.chomp
     elsif game_manager.position_counter == 4
-    # elsif result.join == "O" * game_manager.answer.count
       game_prompts.congrats_prompt
         break
     else
@@ -52,7 +53,6 @@ end
 =begin
  TO DO!!!
  ----------------
- make prompt saying too many characters in the input
  before submission, correct the prompts!!!!
  print yr damn loop
  refactor try again prompt argument to shorten code length

@@ -19,9 +19,13 @@ class GuessTest < Minitest::Test
     guess = GuessManager.new
 
     guess.user_input("rrgb")
+
+    assert_equal 1, guess.guesses.count
+
     guess.user_input("RRGB")
 
     assert_equal [["r", "r", "g", "b"], ["r", "r", "g", "b"]], guess.guesses
+    assert_equal 2, guess.guesses.count
   end
 
   def test_guess_counter_works
