@@ -27,12 +27,6 @@ class GameManager
     compare = @guess_manager.guesses.last
     compare.select do |color|
       answer.include?(color)
-      # require "pry"; binding.pry
-      #   if color.count >= 2
-      #     compare.pop
-      #   end
-        # once we get that there is a color that matches from the guess array
-        # to the answer array we don't want to ???
     end.uniq.length
   end
 
