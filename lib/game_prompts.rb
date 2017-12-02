@@ -15,6 +15,19 @@ class GamePrompts
     puts "Whats your guess?"
   end
 
+  def too_many_characters_prompt(game_manager)
+    puts "Entry has too many colors. Just enter #{game_manager.answer.count} colors"
+  end
+
+  def too_few_characters_prompt(game_manager)
+    puts "Entry has too few colors. Please enter #{game_manager.answer.count} colors"
+  end
+
+  def cheat_prompt(game_manager)
+    puts "Alright ya cheater...the code is #{game_manager.answer.join.upcase}"
+    puts "Enter 'p' to continue or just enter the code and get this over with"
+  end
+
   def congrats_prompt
     puts "Great job! You have guessed all of the things correctly"
   end

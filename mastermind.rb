@@ -9,6 +9,8 @@ game_prompts = GamePrompts.new
 game_manager = GameManager.new
 game_manager.secret_generator
 
+
+
 loop do
   if input == "p" || input == "play"
     game_prompts.play_prompt
@@ -18,7 +20,7 @@ loop do
     puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
     input = gets.chomp
   elsif input == "c" || input == "cheat"
-    puts "Alright ya cheater...the code is #{game_manager.answer.join}, enter 'p' to continue"
+    game_prompts.cheat_prompt(game_manager)
     input = gets.chomp
   elsif input == "q" || input == "quit"
     game_prompts.quit_prompt
@@ -27,7 +29,12 @@ loop do
     game_manager.guess_manager.user_input(input)
     result = game_manager.position_check
     colors_right = game_manager.color_check
-    if result.join == "O" * game_manager.answer.count
+    if input.length > game_manager.answer.count
+      game_prompts.too_many_characters_prompt(game_manager)
+    elsif input.length < game_manager.answer.count
+      game_prompts.too_few_characters_prompt(game_manager)
+    elsif game_manager.position_counter == 4
+    # elsif result.join == "O" * game_manager.answer.count
       game_prompts.congrats_prompt
         break
     else
@@ -37,6 +44,7 @@ loop do
   end
 end
 
+
 # start w/ Time.now
 # end w/ Time.now
 
@@ -44,9 +52,10 @@ end
 =begin
  TO DO!!!
  ----------------
- 
+ make prompt saying too many characters in the input
  before submission, correct the prompts!!!!
-
  print yr damn loop
-
+ refactor try again prompt argument to shorten code length
+ fix attr_accessor on game_manager
+ make readme
 =end
