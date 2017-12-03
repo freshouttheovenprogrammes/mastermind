@@ -43,8 +43,9 @@ class GameManagerTest < Minitest::Test
     game_manager.secret_generator
     game_manager.guess_manager.user_input("GGBR")
     game_manager.guess_manager.user_input("RRYB")
+    require "pry"; binding.pry
 
-    assert_equal game_manager.answer[0]
+    assert_equal "r", game_manager.guess_manager
   end
 
   def test_that_guess_can_be_compared_to_answer_correctly

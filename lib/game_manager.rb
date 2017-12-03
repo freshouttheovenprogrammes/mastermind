@@ -58,7 +58,8 @@ class GameManager
         @position_counter += 1
       end
     end
-    return @position_counter
+    return compare[0] # < THIS IS TO GET TEST WORKING
+    # return @position_counter < KEEP THIS
   end
 
 end

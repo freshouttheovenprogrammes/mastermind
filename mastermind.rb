@@ -77,3 +77,10 @@ end
   \edgecase\
     after play_prompt if input == 'pppp' it initiates a guess w/o the
 =end
+
+=begin
+  * ask mentor*
+  struggled w/ testing the random things.
+    - like how to get the value of the random first element of "answer"
+      and check it against the most recent guess (game_manager_test rb 41-48)
+=end
