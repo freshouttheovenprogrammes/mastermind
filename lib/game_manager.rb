@@ -13,7 +13,6 @@ class GameManager
     @guess_manager    = GuessManager.new
     @position_counter = 0
     @color_correct    = 0
-    # @previous_guesses = []
   end
 
   def colors

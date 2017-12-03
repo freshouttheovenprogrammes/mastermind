@@ -57,11 +57,13 @@ end
  ---------------
  make some more tests....
  get time attribute in there
+ set up Simplecov
  refactor try again prompt argument to shorten code length
  fix attr_accessor on game_manager
+ touch up congrats_prompt
  create a box that shows user what they have entered
  if user enters another wrong input # on their entry, have a witty response
- make sure that it doesn't take non-color entries
  make readme
  have a sweet brain gif appear.
+ make sure that it doesn't take non-color entries
 =end
