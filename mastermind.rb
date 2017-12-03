@@ -1,6 +1,7 @@
 require_relative './lib/game_prompts'
 require_relative './lib/game_manager'
 
+
 puts "Welcome to Mastermind!"
 puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
 
@@ -84,4 +85,6 @@ end
     - like how to get the value of the random first element of "answer"
       and check it against the most recent guess (game_manager_test rb 41-48)
       commit "head scratch" shows where I was at when I was stuck
+    - referencing above ^ does this inherintely become difficult to test because
+      these methods just return the counter? Should I maybe do it differently?
 =end
