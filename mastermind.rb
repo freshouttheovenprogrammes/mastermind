@@ -1,11 +1,13 @@
 require './lib/game_manager'
 require './lib/game_prompts'
+require './lib/mastermind_runner_control'
 
 
 puts "Welcome to Mastermind!"
 puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
 
 input = gets.chomp.downcase
+runner = MastermindRunnerControl.new
 game_manager = GameManager.new
 game_prompts = GamePrompts.new
 game_manager.secret_generator
@@ -13,11 +15,11 @@ game_start   = nil
 
 loop do
   if input == "p" || input == "play"
-    game_prompts.play_prompt
+    runner.play_prompt
     input = gets.chomp
     game_start = Time.now
   elsif input == "i" || input == "instructions"
-    game_prompts.instructions
+    runner.instructions
     input = gets.chomp
   elsif input == "c" || input == "cheat"
     game_prompts.cheat_prompt(game_manager)

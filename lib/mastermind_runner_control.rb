@@ -17,5 +17,9 @@ class MastermindRunnerControl
     game_prompts.play_prompt
   end
 
+  def instructions
+    game_prompts.instructions
+  end
+
 
 end
