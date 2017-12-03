@@ -1,25 +1,29 @@
-require 'mastermind_runner_control'
+require './lib/game_manager'
+require './lib/game_prompts'
 
 
 puts "Welcome to Mastermind!"
 puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
 
 input = gets.chomp.downcase
-runner_control = MastermindRunnerControl.new
+# runner_control = MastermindRunnerControl.new
 game_manager = GameManager.new
+game_prompts = GamePrompts.new
 game_manager.secret_generator
-# game_start   = game_manager.start_time
-# game_end     = game_manager.end_time
+game_start   = nil
 
-def user_wants_to_play
-  game_prompts.play_prompt
-  input = gets.chomp
-end
+#
+# def user_wants_to_play
+#   game_prompts.play_prompt
+#   input = gets.chomp
+#
+# end
 
 loop do
   if input == "p" || input == "play"
     game_prompts.play_prompt
     input = gets.chomp
+    game_start = Time.now(":%M:%S")
   elsif input == "i" || input == "instructions"
     game_prompts.instructions
     input = gets.chomp
@@ -42,7 +46,9 @@ loop do
       game_prompts.too_few_characters_prompt(game_manager)
       input = gets.chomp
     elsif game_manager.position_counter == 4
-      game_prompts.congrats_prompt(game_manager)
+      game_time = Time.new - game_start
+      require "pry"; binding.pry
+      game_prompts.congrats_prompt(game_manager, game_time)
         break
     else
       game_prompts.try_again_prompt(game_manager.guess_compare.join.upcase, result, colors_right, guess_count)

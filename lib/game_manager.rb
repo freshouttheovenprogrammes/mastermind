@@ -14,23 +14,6 @@ class GameManager
     @color_correct    = 0
   end
 
-  def user_input(input)
-    input = gets.chomp
-  end
-
-  def start_time
-    Time.now
-  end
-
-  def end_time
-    Time.now
-  end
-
-  def elapsed_time(start_time, end_time)
-    # require "pry"; binding.pry
-    end_time - start_time#.strftime(":%s")
-  end
-
   def colors
     ["r", "r", "r", "r", "g", "g", "g", "g", "b", "b", "b", "b", "y", "y", "y", "y"]
   end
@@ -56,7 +39,6 @@ class GameManager
     end
     return @color_correct
   end
-  # reduce?
 
   def compare
     @guess_manager.guesses.last.zip(answer)
@@ -69,39 +51,7 @@ class GameManager
         @position_counter += 1
       end
     end
-    # return compare[0] # < THIS IS TO GET TEST WORKING
-    return @position_counter# < KEEP THIS
+    return @position_counter
   end
 
 end
-#
-# gm = GameManager.new
-# gm.secret_generator
-# gm.guess_manager.user_input("heya")
-# gm.position_check
-# guess = Guess.new
-# thing = GameManager.new
-# thing.guess_getter(guess)
-# thing.secret_generator
-# guess.user_input
-# thing.input_check
-# require "pry"; binding.pry
-=begin
-#If an exact match, then update num correct.  If not, but the color is
-            #correct, then update the number of colors correct.
-            if val == @code.split("")[index] then
-                @num_correct += 1
-            elsif @code.include?(val)
-                @num_color_correct += 1
-            end
-=end
-
-=begin
-  TO DO
-  create enum functionality
-  have prompt that can
-  make guess container?
-=end
-#
-# array1.each_with_index do |number, index|
-#   array2.each_with_index do |n, i|
