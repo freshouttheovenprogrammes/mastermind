@@ -27,8 +27,10 @@ loop do
     break
   else
     game_manager.guess_manager.user_input(input)
-    result = game_manager.position_check.join.upcase
+    game_manager.position_check
+    result = game_manager.position_counter
     colors_right = game_manager.color_check
+    guess_count = game_manager.guess_manager.guesses.count
     if input.length > game_manager.answer.count
       game_prompts.too_many_characters_prompt(game_manager)
       input = gets.chomp
@@ -39,32 +41,27 @@ loop do
       game_prompts.congrats_prompt
         break
     else
-      game_prompts.try_again_prompt(game_manager.guess_manager.guesses.last.join.upcase, result, colors_right)
+      game_prompts.try_again_prompt(game_manager.guess_manager.guesses.last.join.upcase, result, colors_right, guess_count)
       input = gets.chomp
     end
   end
 end
 
-
+#
 # start w/ Time.now
 # end w/ Time.now
-
+#
 # end - start
 =begin
  TO DO!!!
- ----------------
- need to clean up the printing of the users last input
- need to get rid of the whole X and O thing and just show colors_correct and position_correct
- reset both correct counters upon user input
- make sure that it doesn't take non-color entries
- Give them feedback on the guess like this:
-('RRGB' has 3 of the correct elements with 2 in the correct positions
-  You've taken 1 guess)
-make some more fucking tests....
+ ---------------
+ make some more tests....
+ get time attribute in there
  refactor try again prompt argument to shorten code length
  fix attr_accessor on game_manager
  create a box that shows user what they have entered
  if user enters another wrong input # on their entry, have a witty response
+ make sure that it doesn't take non-color entries
  make readme
  have a sweet brain gif appear.
 =end

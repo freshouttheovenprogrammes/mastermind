@@ -9,9 +9,9 @@ class GamePrompts
     puts "What's your guess?"
   end
 
-  def try_again_prompt(current_guess_array, result, colors_right)
-    puts "#{current_guess_array}#{result}"
-    puts "You have #{colors_right} colors right and #{result} colors in the correct position"
+  def try_again_prompt(current_guess_array, result, colors_right, guess_count)
+    puts "#{current_guess_array} has #{colors_right} of the correct elements with #{result} in the correct positions"
+    puts "You're on guess #{guess_count} "
     puts "Try again!"
     puts "Whats your guess?"
   end

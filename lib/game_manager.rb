@@ -30,19 +30,24 @@ class GameManager
 
   def color_check
     compare = @guess_manager.guesses.last
+    @color_correct = 0
     compare.select do |color|
-      answer.include?(color)
+      if answer.include?(color)
         @color_correct += 1
-    end.uniq.length
+      end
+    end.uniq
+    return @color_correct
   end
 
   def position_check
     compare = @guess_manager.guesses.last.zip(answer)
+    @position_counter = 0
     compare.map do |comparison|
       if comparison.first == comparison.last
         @position_counter += 1
       end
     end
+    return @position_counter
   end
 
 end
