@@ -15,6 +15,18 @@ class GameManager
     @color_correct    = 0
   end
 
+  def start_time
+    Time.now#.strftime("%M:%S")
+  end
+
+  def end_time
+    Time.now#.strftime("%M:%S")
+  end
+
+  def elapsed_time
+    end_time - start_time#.strftime("%M:%S")
+  end
+
   def colors
     ["r", "r", "r", "r", "g", "g", "g", "g", "b", "b", "b", "b", "y", "y", "y", "y"]
   end

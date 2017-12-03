@@ -11,11 +11,12 @@ game_manager.secret_generator
 
 
 
+
 loop do
   if input == "p" || input == "play"
     game_prompts.play_prompt
-    # put Time.now <- start here?
     input = gets.chomp
+    game_manager.start_time
   elsif input == "i" || input == "instructions"
     game_prompts.instructions
     input = gets.chomp
@@ -38,9 +39,8 @@ loop do
       game_prompts.too_few_characters_prompt(game_manager)
       input = gets.chomp
     elsif game_manager.position_counter == 4
-      require "pry"; binding.pry
-      # Time. now <- end here
-      game_prompts.congrats_prompt
+      game_manager.end_time
+      game_prompts.congrats_prompt(game_manager)
         break
     else
       game_prompts.try_again_prompt(game_manager.guess_manager.guesses.last.join.upcase, result, colors_right, guess_count)
@@ -70,6 +70,7 @@ end
  have a sweet brain gif appear.
  make sure that it doesn't take non-color entries
  clean up instructions
+ print the last guess and iterate backwards thru array of guesses w/ ^[[A as input and go the other way if ^[[B is entered
 =end
 
 =begin

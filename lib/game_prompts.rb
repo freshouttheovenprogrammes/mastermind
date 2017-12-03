@@ -1,4 +1,5 @@
 require './lib/game_manager'
+require 'time'
 
 class GamePrompts
 
@@ -12,6 +13,7 @@ class GamePrompts
   (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game."
     puts "Use (c) or (cheat) to be a cheater."
     puts "What's your guess?"
+
   end
 
   def try_again_prompt(current_guess_array, result, colors_right, guess_count)
@@ -34,8 +36,9 @@ class GamePrompts
     puts "Enter 'p' to continue or just enter the code and get this over with"
   end
 
-  def congrats_prompt
+  def congrats_prompt(game_manager)
     puts "Great job! You have guessed all of the things correctly"
+    puts "Congratulations! You guessed the sequence #{game_manager.answer.join} in #{game_manager.guess_manager.guesses.count} guesses over #{game_manager.elapsed_time.to_s}"
   end
 
   def instructions
