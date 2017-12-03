@@ -1,12 +1,11 @@
-require_relative './lib/game_prompts'
-require_relative './lib/game_manager'
+require 'mastermind_runner_control'
 
 
 puts "Welcome to Mastermind!"
 puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
 
 input = gets.chomp.downcase
-game_prompts = GamePrompts.new
+runner_control = MastermindRunnerControl.new
 game_manager = GameManager.new
 game_manager.secret_generator
 # game_start   = game_manager.start_time
