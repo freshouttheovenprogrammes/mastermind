@@ -83,4 +83,5 @@ end
   struggled w/ testing the random things.
     - like how to get the value of the random first element of "answer"
       and check it against the most recent guess (game_manager_test rb 41-48)
+      commit "head scratch" shows where I was at when I was stuck
 =end

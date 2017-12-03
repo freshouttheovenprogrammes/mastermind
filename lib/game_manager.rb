@@ -58,11 +58,16 @@ class GameManager
         @position_counter += 1
       end
     end
-    return compare[0] # < THIS IS TO GET TEST WORKING
-    # return @position_counter < KEEP THIS
+    # return compare[0] # < THIS IS TO GET TEST WORKING
+    return @position_counter# < KEEP THIS
   end
 
 end
+
+gm = GameManager.new
+gm.secret_generator
+gm.guess_manager.user_input("yybb")
+p gm.position_check
 # guess = Guess.new
 # thing = GameManager.new
 # thing.guess_getter(guess)
