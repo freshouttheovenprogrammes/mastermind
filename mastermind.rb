@@ -57,6 +57,7 @@ end
  ---------------
  make some more tests....
  get time attribute in there
+ clean up game_manager.colors
  set up Simplecov
  refactor try again prompt argument to shorten code length
  fix attr_accessor on game_manager
