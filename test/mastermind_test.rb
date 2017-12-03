@@ -10,6 +10,7 @@ class MastermindTest < Minitest::Test
   end
 
   def test_user_wants_to_play
+    skip
     master_mind = Mastermind.new
     game_prompts = mock('game prompt')
     game_prompts.stubs(:play_prompt).returns("Lets Play!")
