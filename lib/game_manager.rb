@@ -50,3 +50,29 @@ class GameManager
   end
 
 end
+# guess = Guess.new
+# thing = GameManager.new
+# thing.guess_getter(guess)
+# thing.secret_generator
+# guess.user_input
+# thing.input_check
+# require "pry"; binding.pry
+=begin
+#If an exact match, then update num correct.  If not, but the color is
+            #correct, then update the number of colors correct.
+            if val == @code.split("")[index] then
+                @num_correct += 1
+            elsif @code.include?(val)
+                @num_color_correct += 1
+            end
+=end
+
+=begin
+  TO DO
+  create enum functionality
+  have prompt that can
+  make guess container?
+=end
+#
+# array1.each_with_index do |number, index|
+#   array2.each_with_index do |n, i|

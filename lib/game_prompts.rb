@@ -1,6 +1,11 @@
-require './lib/guess_manager'
+require './lib/game_manager'
 
 class GamePrompts
+
+  def guess_square
+    # TO DO
+    # Make a square that holds all of the guesses that user made w/ the position_check
+  end
 
   def play_prompt
     puts "I have generated a sequence with four elements made up of: (r)ed,
