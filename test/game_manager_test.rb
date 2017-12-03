@@ -1,7 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'test_helper'
 require './lib/game_manager'
-require './lib/guess'
 
 class GameManagerTest < Minitest::Test
 
@@ -27,9 +25,16 @@ class GameManagerTest < Minitest::Test
   def test_that_guess_can_be_compared_to_answer
     game_manager = GameManager.new
     game_manager.answer = ["t", "e", "s", "t"]
-    game_manager.guess.user_input("test")
+    game_manager.guess_manager.user_input("test")
+    game_manager.position_check
+    assert_equal 4, game_manager.position_counter
+  end
 
-    assert_equal "Correct", game_manager.input_check
+  def test_user_is_notified_too_many_colors_entered  
+    game_manager = GameManager.new
+    game_manager.guess_manager.user_input("RggBy")
+
+    assert_equal "Entry has too many colors. Just enter 4 colors", guess_manager.input_check
   end
 
 end

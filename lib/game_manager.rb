@@ -1,17 +1,18 @@
-require_relative 'guess'
+require_relative 'guess_manager'
 
 class GameManager
 
-  attr_reader :guess_class, :guess
+  attr_reader :guess_manager,
+              :color_correct,
+              :position_counter,
+              :color_correct
   attr_accessor :answer
 
   def initialize
-    @answer = []
-    @guess  = Guess.new
-  end
-
-  def guess_getter(guess_class)
-    guess_class.guesses
+    @answer           = []
+    @guess_manager    = GuessManager.new
+    @position_counter = 0
+    @color_correct    = 0
   end
 
   def colors
@@ -26,11 +27,26 @@ class GameManager
     colors.shuffle.sample(4)
   end
 
-  def input_check
-    if guess_getter(@guess)[@guess.guess_counter - 1].to_s == answer.join
-      return "Correct"
-    else return "InCorrect"
+  def color_check
+    compare = @guess_manager.guesses.last
+    @color_correct = 0
+    compare.select do |color|
+      if answer.include?(color)
+        @color_correct += 1
+      end
+    end.uniq
+    return @color_correct
+  end
+
+  def position_check
+    compare = @guess_manager.guesses.last.zip(answer)
+    @position_counter = 0
+    compare.map do |comparison|
+      if comparison.first == comparison.last
+        @position_counter += 1
+      end
     end
+    return @position_counter
   end
 
 end

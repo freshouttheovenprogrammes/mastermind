@@ -1,32 +1,35 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/guess'
+require_relative 'test_helper'
+require_relative '../lib/guess_manager'
 
 class GuessTest < Minitest::Test
 
   def test_that_it_exists
-    guess = Guess.new
+    guess = GuessManager.new
 
-    assert_instance_of Guess, guess
+    assert_instance_of GuessManager, guess
   end
 
   def test_that_we_have_no_guesses_yet
-    guess = Guess.new
+    guess = GuessManager.new
 
     assert_equal [], guess.guesses
   end
 
   def test_that_when_user_input_received_input_is_now_in_guesses_array
-    guess = Guess.new
+    guess = GuessManager.new
 
-    guess.user_input("test1")
-    guess.user_input("test2")
+    guess.user_input("rrgb")
 
-    assert_equal ["test1", "test2"], guess.guesses
+    assert_equal 1, guess.guesses.count
+
+    guess.user_input("RRGB")
+
+    assert_equal [["r", "r", "g", "b"], ["r", "r", "g", "b"]], guess.guesses
+    assert_equal 2, guess.guesses.count
   end
 
   def test_guess_counter_works
-    guess = Guess.new
+    guess = GuessManager.new
 
     guess.user_input("test1")
     guess.user_input("test2")
