@@ -14,10 +14,10 @@ game_manager.secret_generator
 loop do
   if input == "p" || input == "play"
     game_prompts.play_prompt
+    # put Time.now <- start here?
     input = gets.chomp
   elsif input == "i" || input == "instructions"
     game_prompts.instructions
-    puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
     input = gets.chomp
   elsif input == "c" || input == "cheat"
     game_prompts.cheat_prompt(game_manager)
@@ -38,6 +38,8 @@ loop do
       game_prompts.too_few_characters_prompt(game_manager)
       input = gets.chomp
     elsif game_manager.position_counter == 4
+      require "pry"; binding.pry
+      # Time. now <- end here
       game_prompts.congrats_prompt
         break
     else
@@ -67,4 +69,10 @@ end
  make readme
  have a sweet brain gif appear.
  make sure that it doesn't take non-color entries
+ clean up instructions
+=end
+
+=begin
+  \edgecase\
+    after play_prompt if input == 'pppp' it initiates a guess w/o the
 =end

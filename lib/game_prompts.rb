@@ -15,7 +15,7 @@ class GamePrompts
   end
 
   def try_again_prompt(current_guess_array, result, colors_right, guess_count)
-    puts "#{current_guess_array} has #{colors_right} of the correct elements with #{result} in the correct positions"
+    puts "#{current_guess_array} has #{colors_right} of the correct elements with #{result} in the correct position(s)"
     puts "You're on guess #{guess_count} "
     puts "Try again!"
     puts "Whats your guess?"
@@ -50,6 +50,7 @@ class GamePrompts
     - You win the game when you manage to guess all the colors in the code sequence and when they all in the right position.
 
     - You can enter (c) or (cheat) to be a filthy cheater at any time"
+    puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
   end
 
   def quit_prompt

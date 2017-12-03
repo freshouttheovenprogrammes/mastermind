@@ -34,7 +34,7 @@ class GameManager
       if answer.include?(color)
         @color_correct += 1
       end
-    end.uniq
+    end#.uniq
     return @color_correct
   end
 
