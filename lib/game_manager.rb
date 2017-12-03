@@ -16,19 +16,6 @@ class GameManager
     @color_correct    = 0
   end
 
-  def start_time
-    Time.now
-  end
-
-  def end_time
-    Time.now
-  end
-
-  def elapsed_time(start_time, end_time)
-    # require "pry"; binding.pry
-    end_time - start_time#.strftime(":%s")
-  end
-
   def colors
     ["r", "r", "r", "r", "g", "g", "g", "g", "b", "b", "b", "b", "y", "y", "y", "y"]
   end
