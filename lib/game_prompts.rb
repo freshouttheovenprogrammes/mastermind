@@ -38,8 +38,8 @@ class GamePrompts
 
   def congrats_prompt(game_manager, game_time)
     puts "Great job! You have guessed all of the things correctly"
-    require "pry"; binding.pry
-    puts "Congratulations! You guessed the sequence #{game_manager.answer.join} in #{game_manager.guess_manager.guesses.count} guesses over #{game_time.round(0)} seconds and #{game_time}"
+    # require "pry"; binding.pry
+    puts "Congratulations! You guessed the sequence #{game_manager.answer.join} in #{game_manager.guess_manager.guesses.count} guesses over #{game_time.round(0) / 60} minutes and #{game_time.round(0) % 60} seconds"
   end
 
   def instructions

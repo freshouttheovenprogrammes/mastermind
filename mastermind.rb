@@ -23,7 +23,7 @@ loop do
   if input == "p" || input == "play"
     game_prompts.play_prompt
     input = gets.chomp
-    game_start = Time.now(":%M:%S")
+    game_start = Time.now
   elsif input == "i" || input == "instructions"
     game_prompts.instructions
     input = gets.chomp
@@ -47,7 +47,6 @@ loop do
       input = gets.chomp
     elsif game_manager.position_counter == 4
       game_time = Time.new - game_start
-      require "pry"; binding.pry
       game_prompts.congrats_prompt(game_manager, game_time)
         break
     else
