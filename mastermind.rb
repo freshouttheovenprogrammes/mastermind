@@ -9,15 +9,18 @@ input = gets.chomp.downcase
 game_prompts = GamePrompts.new
 game_manager = GameManager.new
 game_manager.secret_generator
+# game_start   = game_manager.start_time
+# game_end     = game_manager.end_time
 
-
-
+def user_wants_to_play
+  game_prompts.play_prompt
+  input = gets.chomp
+end
 
 loop do
   if input == "p" || input == "play"
     game_prompts.play_prompt
     input = gets.chomp
-    game_manager.start_time
   elsif input == "i" || input == "instructions"
     game_prompts.instructions
     input = gets.chomp
@@ -40,11 +43,10 @@ loop do
       game_prompts.too_few_characters_prompt(game_manager)
       input = gets.chomp
     elsif game_manager.position_counter == 4
-      game_manager.end_time
       game_prompts.congrats_prompt(game_manager)
         break
     else
-      game_prompts.try_again_prompt(game_manager.guess_manager.guesses.last.join.upcase, result, colors_right, guess_count)
+      game_prompts.try_again_prompt(game_manager.guess_compare.join.upcase, result, colors_right, guess_count)
       input = gets.chomp
     end
   end

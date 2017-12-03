@@ -5,8 +5,9 @@ class GameManager
   attr_reader :guess_manager,
               :color_correct,
               :position_counter,
-              :color_correct
-  attr_accessor :answer
+              :color_correct,
+              :answer
+  # attr_accessor :answer
 
   def initialize
     @answer           = []
@@ -16,15 +17,16 @@ class GameManager
   end
 
   def start_time
-    Time.now#.strftime("%M:%S")
+    Time.now
   end
 
   def end_time
-    Time.now#.strftime("%M:%S")
+    Time.now
   end
 
-  def elapsed_time
-    end_time - start_time#.strftime("%M:%S")
+  def elapsed_time(start_time, end_time)
+    # require "pry"; binding.pry
+    end_time - start_time#.strftime(":%s")
   end
 
   def colors
@@ -39,19 +41,26 @@ class GameManager
     colors.shuffle.sample(4)
   end
 
+  def guess_compare
+    @guess_manager.guesses.last
+  end
+
   def color_check
-    compare = @guess_manager.guesses.last
     @color_correct = 0
-    compare.select do |color|
+    guess_compare.select do |color|
       if answer.include?(color)
         @color_correct += 1
       end
-    end#.uniq
+    end
     return @color_correct
+  end
+  # reduce?
+
+  def compare
+    @guess_manager.guesses.last.zip(answer)
   end
 
   def position_check
-    compare = @guess_manager.guesses.last.zip(answer)
     @position_counter = 0
     compare.map do |comparison|
       if comparison.first == comparison.last
@@ -63,6 +72,11 @@ class GameManager
   end
 
 end
+#
+# gm = GameManager.new
+# gm.secret_generator
+# gm.guess_manager.user_input("heya")
+# gm.position_check
 # guess = Guess.new
 # thing = GameManager.new
 # thing.guess_getter(guess)

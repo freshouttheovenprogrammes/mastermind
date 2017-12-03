@@ -9,10 +9,13 @@ class MastermindTest < Minitest::Test
     assert_instance_of Mastermind, master_mind
   end
 
-  def test_loop_start
+  def test_user_wants_to_play
     master_mind = Mastermind.new
+    game_prompts = mock('game prompt')
+    game_prompts.stubs(:play_prompt).returns("Lets Play!")
 
-    assert_equal game_prompts.play_prompt, master_mind.input == "p"
+    # master_mind.guess_manager.user_input("p")
+
+    assert_equal "Lets Play!", master_mind.user_input("p")
   end
-
 end

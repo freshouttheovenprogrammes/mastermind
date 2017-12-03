@@ -38,7 +38,7 @@ class GamePrompts
 
   def congrats_prompt(game_manager)
     puts "Great job! You have guessed all of the things correctly"
-    puts "Congratulations! You guessed the sequence #{game_manager.answer.join} in #{game_manager.guess_manager.guesses.count} guesses over #{game_manager.elapsed_time.to_s}"
+    puts "Congratulations! You guessed the sequence #{game_manager.answer.join} in #{game_manager.guess_manager.guesses.count} guesses over #{game_manager.elapsed_time(game_manager.start_time, game_manager.end_time)}"
   end
 
   def instructions

@@ -16,9 +16,9 @@ class GameManagerTest < Minitest::Test
   end
 
   def test_answer_is_array
-      game_manager = GameManager.new
+    game_manager = GameManager.new
 
-      assert_instance_of Array, game_manager.answer
+    assert_instance_of Array, game_manager.answer
   end
 
   def test_answer_array_has_the_colors
@@ -39,18 +39,18 @@ class GameManagerTest < Minitest::Test
   end
 
   def test_that_position_check_compares_right_elements
-    skip
+
     game_manager = GameManager.new
-    game_manager.secret_generator
+    game_manager.answer << "r" << "g" << "b" << "y"
     game_manager.guess_manager.user_input("GGBR")
     game_manager.guess_manager.user_input("RRYB")
 
-    assert_equal ["r", (game_manager.answer[0])], game_manager.position_check
+    assert_equal ["r", "r"], game_manager.compare[0]
   end
 
   def test_that_guess_can_be_compared_to_answer_correctly
     game_manager = GameManager.new
-    game_manager.answer = ["r", "g", "b", "y"]
+    game_manager.answer << "r" << "g" << "b" << "y"
     game_manager.guess_manager.user_input("rgby")
     game_manager.position_check
     game_manager.color_check
@@ -61,7 +61,7 @@ class GameManagerTest < Minitest::Test
 
   def test_position_counter_doesnt_remain_same_after_input
     game_manager = GameManager.new
-    game_manager.answer = ["g", "g", "y", "y"]
+    game_manager.answer << "g" << "g" << "y" << "y"
     game_manager.guess_manager.user_input("rgyb")
     game_manager.position_check
 
