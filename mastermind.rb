@@ -6,18 +6,10 @@ puts "Welcome to Mastermind!"
 puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
 
 input = gets.chomp.downcase
-# runner_control = MastermindRunnerControl.new
 game_manager = GameManager.new
 game_prompts = GamePrompts.new
 game_manager.secret_generator
 game_start   = nil
-
-#
-# def user_wants_to_play
-#   game_prompts.play_prompt
-#   input = gets.chomp
-#
-# end
 
 loop do
   if input == "p" || input == "play"
@@ -56,17 +48,11 @@ loop do
   end
 end
 
-#
-# start w/ Time.now
-# end w/ Time.now
-#
-# end - start
 =begin
  TO DO!!!!
  ---------------
  make some more tests....
- get time attribute in there
- clean up game_manager.colors
+ clean up game_manager.colors_right
  set up Simplecov
  refactor try again prompt argument to shorten code length
  fix attr_accessor on game_manager
@@ -78,19 +64,4 @@ end
  make sure that it doesn't take non-color entries
  clean up instructions
  print the last guess and iterate backwards thru array of guesses w/ ^[[A as input and go the other way if ^[[B is entered
-=end
-
-=begin
-  \edgecase\
-    after play_prompt if input == 'pppp' it initiates a guess w/o the
-=end
-
-=begin
-  * ask mentor*
-  struggled w/ testing the random things.
-    - like how to get the value of the random first element of "answer"
-      and check it against the most recent guess (game_manager_test rb 41-48)
-      commit "head scratch" shows where I was at when I was stuck
-    - referencing above ^ does this inherintely become difficult to test because
-      these methods just return the counter? Should I maybe do it differently?
 =end
