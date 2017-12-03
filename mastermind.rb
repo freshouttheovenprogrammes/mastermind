@@ -53,7 +53,7 @@ end
 #
 # end - start
 =begin
- TO DO!!!
+ TO DO!!!!
  ---------------
  make some more tests....
  get time attribute in there
