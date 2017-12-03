@@ -1,7 +1,7 @@
 require_relative 'test_helper'
 require_relative '../lib/guess_manager'
 
-class GuessTest < Minitest::Test
+class GuessManagerTest < Minitest::Test
 
   def test_that_it_exists
     guess = GuessManager.new
@@ -28,14 +28,6 @@ class GuessTest < Minitest::Test
     assert_equal 2, guess.guesses.count
   end
 
-  def test_guess_counter_works
-    guess = GuessManager.new
-
-    guess.user_input("test1")
-    guess.user_input("test2")
-
-    assert_equal 2, guess.guess_counter
-  end
 
 
 end

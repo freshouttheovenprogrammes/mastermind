@@ -8,8 +8,6 @@ class GuessManager
 
   def user_input(input)
     @guesses << input.downcase.split("")
-    # counter = 0
-    # counter_2 = 0
   end
 
 
