@@ -5,15 +5,17 @@ class GameManager
   attr_reader :guess_manager,
               :color_correct,
               :position_counter,
-              :color_correct,
               :answer
-  # attr_accessor :answer
 
   def initialize
     @answer           = []
     @guess_manager    = GuessManager.new
     @position_counter = 0
     @color_correct    = 0
+  end
+
+  def user_input(input)
+    input = gets.chomp
   end
 
   def start_time
