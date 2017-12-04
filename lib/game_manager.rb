@@ -38,12 +38,8 @@ class GameManager
 
   def color_check
     @color_correct = 0
-    guess_compare.select do |color|
-      if answer.include?(color)
-        @color_correct += 1
-      end
-    end
-    return @color_correct
+    arrays_compare = (guess_compare & answer)
+    @color_correct = arrays_compare.length
   end
 
   def compare

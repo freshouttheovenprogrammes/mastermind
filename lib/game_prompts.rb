@@ -19,7 +19,8 @@ class GamePrompts
     puts " with #{result} in the correct position(s)"
     puts "You're on guess #{guess_count} "
     puts "Try again!"
-    puts "Whats your guess?"
+    print "Whats your guess?, You can choose elements (r)ed, (g)reen, (b)lue, "
+    puts "and (y)ellow"
   end
 
   def too_many_characters_prompt(game_manager)
@@ -41,12 +42,13 @@ class GamePrompts
   end
 
   def congrats_prompt(game_manager, game_time)
+    time_clean = game_time.round(0)
     puts "-------------------------------------------------------------------"
     print "Congratulations! You guessed the sequence "
     print "#{game_manager.answer.join.upcase} in "
     print "#{game_manager.guess_manager.guesses.count} guesses over "
-    print "#{game_time.round(0) / 60} minutes and "
-    puts "#{game_time.round(0) % 60} seconds"
+    print "#{time_clean / 60} minutes and "
+    puts "#{time_clean % 60} seconds"
   end
 
   def instructions

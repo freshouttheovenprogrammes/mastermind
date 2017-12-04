@@ -48,18 +48,3 @@ loop do
     end
   end
 end
-
-=begin
- TO DO!!!!
- ---------------
- clean up game_manager.colors_right
- make some more tests....
- refactor try again prompt argument to shorten code length
- create a box that shows user what they have entered
- if user enters another wrong input # on their entry, have a witty response
- make readme
- have a sweet brain gif appear.
- make sure that it doesn't take non-color entries
- clean up instructions
- print the last guess and iterate backwards thru array of guesses w/ ^[[A as input and go the other way if ^[[B is entered
-=end
