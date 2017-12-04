@@ -31,6 +31,7 @@ loop do
     result = game_manager.position_counter
     colors_right = game_manager.color_check
     guess_count = game_manager.guess_manager.guesses.count
+    current_guess_array = game_manager.guess_compare.join.upcase
     if input.length > game_manager.answer.count
       game_prompts.too_many_characters_prompt(game_manager)
       input = gets.chomp
@@ -42,7 +43,7 @@ loop do
       game_prompts.congrats_prompt(game_manager, game_time)
         break
     else
-      game_prompts.try_again_prompt(game_manager.guess_compare.join.upcase, result, colors_right, guess_count)
+      game_prompts.try_again_prompt(current_guess_array, result, colors_right, guess_count)
       input = gets.chomp
     end
   end

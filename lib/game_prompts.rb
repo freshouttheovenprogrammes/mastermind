@@ -42,7 +42,6 @@ class GamePrompts
 
   def congrats_prompt(game_manager, game_time)
     puts "-------------------------------------------------------------------"
-    puts "Great job! You have guessed all of the colors correctly"
     print "Congratulations! You guessed the sequence "
     print "#{game_manager.answer.join.upcase} in "
     print "#{game_manager.guess_manager.guesses.count} guesses over "
