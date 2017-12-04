@@ -15,7 +15,13 @@ class GameManager
   end
 
   def colors
-    ["r", "r", "r", "r", "g", "g", "g", "g", "b", "b", "b", "b", "y", "y", "y", "y"]
+    ["r", "g", "b", "y"]
+  end
+
+  def colors_array
+    colors.map do |color|
+      color.split * 4
+    end.flatten
   end
 
   def secret_generator
@@ -23,7 +29,7 @@ class GameManager
   end
 
   def computer_selection
-    colors.shuffle.sample(4)
+    colors_array.shuffle.sample(4)
   end
 
   def guess_compare

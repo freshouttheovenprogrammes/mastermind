@@ -54,8 +54,6 @@ end
  clean up game_manager.colors_right
  make some more tests....
  refactor try again prompt argument to shorten code length
- fix attr_accessor on game_manager
- touch up congrats_prompt
  create a box that shows user what they have entered
  if user enters another wrong input # on their entry, have a witty response
  make readme
