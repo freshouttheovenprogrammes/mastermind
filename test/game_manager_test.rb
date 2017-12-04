@@ -84,18 +84,17 @@ class GameManagerTest < Minitest::Test
     assert_equal 0, game_manager.position_counter
   end
 
+  def test_color_counter_doesnt_remain_same_after_input
+    game_manager = GameManager.new
+    game_manager.answer << "r" << "g" << "y" << "b"
+    game_manager.guess_manager.user_input("rgyb")
+    game_manager.position_check
 
-    def test_color_counter_doesnt_remain_same_after_input
-      game_manager = GameManager.new
-      game_manager.answer << "r" << "g" << "y" << "b"
-      game_manager.guess_manager.user_input("rgyb")
-      game_manager.position_check
+    assert_equal 4, game_manager.color_check
 
-      assert_equal 4, game_manager.color_check
+    game_manager.guess_manager.user_input("yygg")
+    game_manager.position_check
 
-      game_manager.guess_manager.user_input("yygg")
-      game_manager.position_check
-
-      assert_equal 2, game_manager.color_check
-    end
+    assert_equal 2, game_manager.color_check
+  end
 end
