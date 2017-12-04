@@ -2,10 +2,10 @@ require_relative 'guess_manager'
 
 class GameManager
   attr_reader :guess_manager,
+              :answer,
               :color_correct,
               :position_counter,
-              :color_correct,
-              :answer
+              :color_correct
 
   def initialize
     @answer           = []
@@ -59,5 +59,4 @@ class GameManager
     end
     return @position_counter
   end
-
 end

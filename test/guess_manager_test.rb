@@ -28,6 +28,17 @@ class GuessManagerTest < Minitest::Test
     assert_equal 2, guess.guesses.count
   end
 
+  def test_that_too_large_of_a_user_input_doesnt_get_into_guess_array
+    guess = GuessManager.new
+    guess.user_input("rrgyb")
 
+    assert_equal 0, guess.guesses.count
+  end
 
+  def test_that_too_short_of_a_user_input_doesnt_get_into_guess_array
+    guess = GuessManager.new
+    guess.user_input("rrg")
+
+    assert_equal 0, guess.guesses.count
+  end
 end

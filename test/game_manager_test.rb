@@ -72,5 +72,4 @@ class GameManagerTest < Minitest::Test
 
     assert_equal 0, game_manager.position_counter
   end
-
 end

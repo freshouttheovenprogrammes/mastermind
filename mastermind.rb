@@ -27,11 +27,11 @@ loop do
     break
   else
     game_manager.guess_manager.user_input(input)
-    game_manager.position_check
     result = game_manager.position_counter
     colors_right = game_manager.color_check
     guess_count = game_manager.guess_manager.guesses.count
     current_guess_array = game_manager.guess_compare.join.upcase
+    game_manager.position_check
     if input.length > game_manager.answer.count
       game_prompts.too_many_characters_prompt(game_manager)
       input = gets.chomp
