@@ -1,5 +1,4 @@
 class GuessManager
-
   attr_reader :guesses
 
   def initialize
@@ -9,6 +8,4 @@ class GuessManager
   def user_input(input)
     @guesses << input.downcase.split("")
   end
-
-
 end
