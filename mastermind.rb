@@ -28,8 +28,9 @@ loop do
     game_prompts.quit_prompt
     break
   else
-    game_manager.guess_manager.user_input(input)
-    game_manager.position_check
+    runner.guess_input(input)
+    require "pry"; binding.pry
+    runner.position_check
     result = game_manager.position_counter
     colors_right = game_manager.color_check
     guess_count = game_manager.guess_manager.guesses.count

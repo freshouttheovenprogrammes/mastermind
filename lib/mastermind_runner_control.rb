@@ -21,5 +21,12 @@ class MastermindRunnerControl
     game_prompts.instructions
   end
 
+  def position_check
+    game_manager.position_check
+  end
+
+  def guess_input(input)
+    guess_manager.user_input(input)
+  end
 
 end
