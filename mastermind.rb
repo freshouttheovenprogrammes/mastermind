@@ -51,9 +51,8 @@ end
 =begin
  TO DO!!!!
  ---------------
- make some more tests....
  clean up game_manager.colors_right
- set up Simplecov
+ make some more tests....
  refactor try again prompt argument to shorten code length
  fix attr_accessor on game_manager
  touch up congrats_prompt

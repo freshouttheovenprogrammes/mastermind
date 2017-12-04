@@ -3,20 +3,18 @@ require 'time'
 
 class GamePrompts
 
-  def guess_square
-    # TO DO
-    # Make a square that holds all of the guesses that user made w/ the position_check
-  end
-
   def play_prompt
-    puts "I have generated a sequence with four elements made up of: (r)ed,
-  (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game."
+    puts "---------------------------------------------------------------------"
+    print "I have generated a sequence with four elements made up of: (r)ed, "
+    puts "(g)reen, (b)lue, and (y)ellow."
+    puts  "Use (q)uit at any time to end the game."
     puts "Use (c) or (cheat) to be a cheater."
     puts "What's your guess?"
 
   end
 
   def try_again_prompt(current_guess_array, result, colors_right, guess_count)
+    puts "---------------------------------------------------------------------"
     puts "#{current_guess_array} has #{colors_right} of the correct elements with #{result} in the correct position(s)"
     puts "You're on guess #{guess_count} "
     puts "Try again!"
@@ -24,24 +22,29 @@ class GamePrompts
   end
 
   def too_many_characters_prompt(game_manager)
+    puts "---------------------------------------------------------------------"
     puts "Entry has too many colors. Just enter #{game_manager.answer.count} colors"
   end
 
   def too_few_characters_prompt(game_manager)
+    puts "---------------------------------------------------------------------"
     puts "Entry has too few colors. Please enter #{game_manager.answer.count} colors"
   end
 
   def cheat_prompt(game_manager)
+    puts "---------------------------------------------------------------------"
     puts "Alright ya cheater...the code is #{game_manager.answer.join.upcase}"
     puts "Enter 'p' to continue or just enter the code and get this over with"
   end
 
   def congrats_prompt(game_manager, game_time)
+    puts "---------------------------------------------------------------------"
     puts "Great job! You have guessed all of the colors correctly"
     puts "Congratulations! You guessed the sequence #{game_manager.answer.join} in #{game_manager.guess_manager.guesses.count} guesses over #{game_time.round(0) / 60} minutes and #{game_time.round(0) % 60} seconds"
   end
 
   def instructions
+    puts "---------------------------------------------------------------------"
     puts"- The computer picks a sequence of colors. There are 4 colors in this sequence. There can be multiple instances of the same color.
 
     - The objective of the game is to guess the exact positions of the colors in the computer's sequence.
@@ -57,6 +60,7 @@ class GamePrompts
   end
 
   def quit_prompt
+    puts "---------------------------------------------------------------------"
     puts "Goodbye! Thanks for playing!"
   end
 end
